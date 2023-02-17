@@ -13,7 +13,9 @@ namespace Core.DependecyResolvers
     {
         public void Load(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IHttpContextAccessor, IHttpContextAccessor>();
+            serviceCollection.AddMemoryCache();
+            serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            
         }
     }
 }
