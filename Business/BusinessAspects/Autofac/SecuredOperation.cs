@@ -24,7 +24,7 @@ namespace Business.BusinessAspects.Autofac
         public SecuredOperation(string roles)
         {
             _roles = roles.Split(',');
-            _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>(); // ınjectıon altyapısını okumaya yarayan arac servicetool
+            _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>(); // ınjectıon altyapısını okumaya yarayan arac servicetool  using Microsoft.Extensions.DependencyInjection;
 
         }
 
@@ -38,7 +38,7 @@ namespace Business.BusinessAspects.Autofac
                     return;
                 }
             }
-            throw new Exception(Messages.AuthorizationDenied);
+             throw new Exception(Messages.AuthorizationDenied);
         }
     }
 }

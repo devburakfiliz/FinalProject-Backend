@@ -18,7 +18,7 @@ namespace Core.Utilities.Security.JWT
         public IConfiguration Configuration { get; } // Apıdeki appsetingi okumaya yarar microsoftdan gelıyor
         private TokenOptions _tokenOptions; // appsetingde okunan degerlerı bir neseneye atar
         private DateTime _accessTokenExpiration; 
-        public JwtHelper(IConfiguration configuration)
+        public JwtHelper(IConfiguration configuration)  // token options alanını okudugumuz yer appsettings deki
         {
             Configuration = configuration;
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();  //Microsoft.Extensions.Configuration.Binder nuget
