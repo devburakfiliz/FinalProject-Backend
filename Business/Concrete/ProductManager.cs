@@ -72,7 +72,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-        [PerformanceAspect(5)]
+        [PerformanceAspect(1)] // 5 sanıyeden daha uzun surerse uyarı ver
         public IDataResult<List<Product>> GetAll()
         {
 
