@@ -6,6 +6,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,12 @@ namespace Core.DependecyResolvers
 {
     public class CoreModule : ICoreModule
     {
-        public void Load(IServiceCollection serviceCollection)
+        public void Load(IServiceCollection services)
         {
-            serviceCollection.AddMemoryCache(); //otomatık injection yapması ıcın _memoryCache ın karsılıgı
-            serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();//birisi senden ıcachemanager ısterse MemoryCacheManager  ver
+            services.AddMemoryCache(); //otomatık injection yapması ıcın _memoryCache ın karsılıgı
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<ICacheManager, MemoryCacheManager>();//birisi senden ıcachemanager ısterse MemoryCacheManager  ver
+            services.AddSingleton<Stopwatch>();
         }
     }
 }
