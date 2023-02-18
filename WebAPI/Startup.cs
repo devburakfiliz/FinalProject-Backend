@@ -45,6 +45,8 @@ namespace WebAPI
 
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddCors();   //frontent eriþimi için
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();   //using Core.Utilities.Security.JWT;   3.1.12 nuget
  
 
@@ -83,6 +85,8 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());  //frontent eriþimi için
 
             app.UseHttpsRedirection();
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -25,8 +26,8 @@ namespace WebAPI.Controllers
 
         [HttpGet("getall")]
         public IActionResult Get()
-        { 
-            
+        {
+            Thread.Sleep(3000);
             var result = _productService.GetAll();
             if (result.Success)
             {

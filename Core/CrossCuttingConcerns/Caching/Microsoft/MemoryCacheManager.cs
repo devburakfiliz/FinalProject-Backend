@@ -38,7 +38,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 
         public bool IsAdd(string key) // bellekte böyle bir cache degerı varmı
         {
-            return _memoryCache.TryGetValue(key, out _); // bens adece key varmı dıye bakıyorum .
+            return _memoryCache.TryGetValue(key, out _); // ben sadece key varmı dıye bakıyorum .
         }
 
         public void Remove(string key)
